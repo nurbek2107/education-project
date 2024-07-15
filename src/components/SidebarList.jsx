@@ -1,29 +1,19 @@
-"use client";
+'use client'
 import { useEffect, useState } from "react";
-import { Button } from "./ExportClients";
-import Link from "next/link";
+import { Button } from "./ExportClients"
+import Link from "next/link"
 
 function SidebarList() {
   const [activeButton, setActiveButton] = useState(0);
 
-  useEffect(() => {
-    // Retrieve the active button state from local storage when the component mounts
-    const savedActiveButton = localStorage.getItem("activeButton");
-    if (savedActiveButton) {
-      setActiveButton(Number(savedActiveButton));
-    }
-  }, []);
-
   const handleButtonClick = (buttonId) => {
     setActiveButton(buttonId);
-    // Save the active button state to local storage
-    localStorage.setItem("activeButton", buttonId);
   };
 
   return (
     <>
       <ul className="flex flex-col gap-4 w-full">
-                <Button
+        <Button
           size="sm"
           variant="text"
           className={`flex leading-[18px] rounded-r-full text-base font-normal lowercase hover:text-white hover-bg p-0 ${activeButton == 1 ? "active" : ""
@@ -594,9 +584,10 @@ function SidebarList() {
             </div>
           </li>
         </Button>
+
       </ul>
     </>
   );
 }
 
-export default SidebarList;
+export default SidebarList
